@@ -1,0 +1,54 @@
+.val {
+    color: #DC3545;
+}
+
+.note {
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+
+.about{
+    background-image: url('37fc28989b200f39b0c8ae4a29960d0e.jpg');
+    background-position: center;
+}
+
+.heading {
+    padding: inherit;
+}
+
+p {
+    display: block;
+    justify-content: center;
+}
+
+.next-btn {
+    color: #ffffff;
+    background-color: black;
+    width: auto !important;
+    margin: 10px;
+    float: right;
+}
+
+.modal-footer {
+    position: relative;
+}
+
+.cancel-btn {
+    color: rgb(255, 255, 255);
+    background-color: black;
+    margin: 10px;
+    float: right;
+    width: 76px !important;
+    display: flex;
+    justify-content: space-around;
+}
+
+.save-btn {
+    color: #ffffff;
+    background-color: black;
+    width: auto !important;
+    margin: 10px;
+    position: relative;
+    right: -514px;
+}

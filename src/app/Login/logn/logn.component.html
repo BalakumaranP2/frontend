@@ -1,0 +1,107 @@
+<!-- LOGIN MODAL -->
+<ng-container *ngIf="oldUser">
+    <div #loginModal class="modal modal-signin position-static d-block py-5" tabindex="-1" role="dialog" id="modalSignin" [ngStyle]="{ display: displayStyle }">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h5 class="modal-title">Login</h5>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                            <label for="floatingInput">Email address</label>
+                            <div class="invalid-feedback" *ngIf="submitted && f['username'].errors">
+                                <div *ngIf="f['username'].errors['required']">
+                                    Email is required
+                                </div>
+                                <div *ngIf="f['username'].errors['email']">
+                                    Email must be a valid email address eg. (@gmail.com)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                            <label for="floatingPassword">Password</label>
+                            <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+                                <div *ngIf="f['password'].errors['required']">
+                                    Password is required
+                                </div>
+                                <div *ngIf="f['password'].errors['minlength']">
+                                    Minimum eight characters
+                                </div>
+                            </div>
+                        </div>
+                        <button class="signin-btn w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">
+              Log in
+            </button>
+                    </form>
+                    <button class="btn btn-link" (click)="createAccount()">
+            <small type="button" class="text-muted">Create an Account</small>
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<!-- SING-UP MODAL -->
+<ng-container *ngIf="!oldUser">
+    <div #signUpModal class="modal modal-signin position-static d-block py-5" tabindex="-1" role="dialog" id="modalSignin" [ngStyle]="{ display: displayStyle2 }">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h5 class="modal-title">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form [formGroup]="signupForm" (ngSubmit)="submitNewForm()">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
+                            <label for="floatingInput">Email address</label>
+                            <div class="invalid-feedback" *ngIf="submitted && f['username'].errors">
+                                <div *ngIf="f['username'].errors['required']">
+                                    Email is required
+                                </div>
+                                <div *ngIf="f['username'].errors['email']">
+                                    Email must be a valid email address eg. (@gmail.com)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3" id="floatingPassword2" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                            <label for="floatingPassword2">Password</label>
+                            <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+                                <div *ngIf="f['password'].errors['required']">
+                                    Password is required
+                                </div>
+                                <div *ngIf="f['password'].errors['minlength']">
+                                    Minimum eight characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3" id="floatingConPassword" placeholder="Password" formControlName="confirmPassword" [ngClass]="{
+                  'is-invalid': submitted && f['confirmPassword'].errors
+                }" />
+                            <label for="floatingConPassword">Confirm Password</label>
+                            <div class="invalid-feedback" *ngIf="submitted && f['confirmPassword'].errors">
+                                <div *ngIf="f['confirmPassword'].errors['required']">
+                                    Password is required
+                                </div>
+                                <div *ngIf="f['confirmPassword'].errors['passwordMismatch']">
+                                    Password Mismatch
+                                </div>
+                            </div>
+                        </div>
+                        <button class="signup w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">
+              Sign up
+            </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
